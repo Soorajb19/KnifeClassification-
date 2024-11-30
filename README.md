@@ -4,3 +4,5 @@ of these models. Employing a systematic approach, the study evaluates each model
 indicate significant variances in model performance, with certain models displaying superior adaptability to learning rate modifications. These results provide insightful 
 revelations about the optimal deployment of CNN models for image classification tasks, particularly in applications requiring the discrimination of knife images. The study's 
 findings offer valuable contributions to the field of image classification, highlighting critical considerations in the selection and tuning of CNN models for specific tasks. The experiment was performed on Google Colab with Tesla T4 GPU. 
+
+![image](https://github.com/user-attachments/assets/fcf64f7d-9bd0-4d65-9572-4b6d2f050b99)
