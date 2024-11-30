@@ -5,7 +5,7 @@ indicate significant variances in model performance, with certain models display
 revelations about the optimal deployment of CNN models for image classification tasks, particularly in applications requiring the discrimination of knife images. The study's 
 findings offer valuable contributions to the field of image classification, highlighting critical considerations in the selection and tuning of CNN models for specific tasks. The experiment was performed on Google Colab with Tesla T4 GPU. 
 
-## Knife Dataset
+## 1. Knife Dataset
 
 In the development of machine learning models for knife classification, a comprehensive dataset plays a pivotal role in ensuring accuracy and robustness. The dataset employed in this project is meticulously partitioned into three subsets: training, testing, and validation, each serving a distinct purpose in the model's learning and evaluation process.
 
@@ -24,7 +24,7 @@ offered by 192 knife classes, ensures a robust framework
 for the development and evaluation of the machine learning
 
 
-## Data Augmentation
+## 2. Data Augmentation
 
 When training pretrained models for classifying knife images from 192 classes, a strategic sequence of image augmentations was applied to the training data, aiming to enhance the model's capability to generalize and perform effectively on varied data. This process is crucial in computer vision tasks, particularly when dealing with many classes.
 
@@ -35,3 +35,97 @@ To introduce rotational variance, the images were randomly rotated between 0 and
 After these spatial and color transformations, the images were converted into tensors, scaling the pixel values to a range suitable for neural network processing. Finally, the images were normalized, a crucial step involving adjusting pixel values based on dataset-specific mean and standard deviation. This normalization is key to stabilizing the learning process and is tailored to the requirements of the pretrained models used.
 
 Overall, these augmentations collectively prepared the dataset to simulate a wide range of real-world scenarios. Such preparation is pivotal in developing a robust classifier capable of accurately identifying various knife classes under different conditions, ultimately boosting the model's accuracy and generalization capabilities on unseen data.
+
+## 3. Training 
+
+When classifying a large and diverse set of 192 knife 
+classes, selecting the right pretrained models is crucial for 
+achieving high accuracy and efficiency. The chosen 
+models – EfficientNet_b0, ResNet50, MobileNetV3, and 
+Vision Transformer (ViT) – each offer unique strengths 
+that make them well-suited for this task. 
+
+EfficientNet_b0 is part of the EfficientNet family, 
+known for its efficiency and scalability. EfficientNet_b0, 
+the baseline model of this series, is designed to balance 
+model complexity (depth, width, and resolution) using a 
+compound scaling method. This balance allows it to 
+achieve excellent accuracy with relatively fewer 
+parameters and lower computational cost compared to 
+other deep learning models. Its efficiency in handling a 
+large number of classes with limited resources makes it a 
+strong candidate for classifying diverse knife types. 
+
+ResNet50, particularly the 50-layer variant, is renowned 
+for its deep architecture that utilizes residual connections 
+to prevent the vanishing gradient problem. This design 
+enables it to learn complex patterns without a significant 
+increase in computational cost. The residual connections 
+help in retaining information over deeper layers, which is 
+critical in distinguishing subtle differences between 
+numerous knife classes. 
+
+MobileNetV3, developed by Google, is optimized for 
+mobile and edge devices, balancing the trade-off between 
+latency and accuracy. It uses lightweight depth wise 
+separable convolutions and incorporates architecture 
+search and complementary search techniques for 
+optimizing the network. This model is particularly useful 
+for scenarios where deployment on mobile or edge devices 
+is required, providing a good mix of speed and accuracy.
+
+ViT is a relatively recent approach that applies the 
+transformer architecture, primarily used in NLP, to image 
+classification tasks. Unlike traditional CNNs, ViT treats 
+image classification as a sequence prediction problem, 
+dividing an image into patches and processing these 
+sequentially. This method allows it to capture global 
+dependencies within the image, which can be crucial in 
+identifying fine-grained features of different knife classes. 
+Using these models for classifying knives is 
+advantageous due to their varied strengths. 
+
+EfficientNet_b0 and MobileNetV3 offer efficiency and 
+speed, making them suitable for applications with resource 
+constraints. ResNet50 provides deep learning capabilities 
+to capture complex patterns, while ViT introduces a novel 
+approach to image classification that captures global image 
+features effectively. This combination of models ensures a 
+comprehensive approach, leveraging efficiency, depth, and 
+innovation, to accurately classify a wide array of knife 
+types. 
+
+Incorporating the early stopping technique into the 
+training process of the chosen pretrained models – 
+EfficientNet_b0, ResNet50, MobileNetV3, and Vision 
+Transformer (ViT) – for classifying 192 knife classes was 
+a strategic decision aimed at enhancing the training 
+efficiency and model performance. 
+
+Early stopping is a form of regularization used to avoid 
+overfitting during the training of a machine learning model. 
+It involves monitoring the model's performance on a 
+validation dataset and halting the training process once the 
+model's performance ceases to improve, or starts to 
+deteriorate, over several epochs. This technique is 
+particularly beneficial in scenarios involving many classes 
+and complex models, as it helps in achieving the right 
+balance between underfitting and overfitting. 
+
+By implementing early stopping, the training process 
+becomes more efficient. It prevents the waste of 
+computational resources by stopping the training once the 
+model has reached its optimal state, avoiding the extra time 
+and resources that would have been spent on training 
+epochs that do not contribute to improving the model. This 
+is especially crucial when working with sophisticated 
+architectures like the ones selected for this task. 
+
+Furthermore, early stopping helps in maintaining the 
+generalization ability of the models. By preventing 
+overfitting, it ensures that the models do not become overly 
+specialized to the training data, which is vital for 
+maintaining high accuracy when classifying a wide variety 
+of knife types. This is particularly important for a task like 
+knife classification, where subtle differences between 
+classes need to be accurately identified by the model. 
